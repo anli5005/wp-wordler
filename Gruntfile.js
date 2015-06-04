@@ -5,6 +5,24 @@ module.exports = function(grunt) {
 		
 		clean: ["dist"],
 		
+		copy: {
+			php: {
+				files: {
+					"dist": "php"
+				}
+			},
+			js: {
+				files: {
+					"dist/js": "js"
+				}
+			},
+			fonts: {
+				files: {
+					"dist/fonts": "fonts"
+				}
+			}
+		},
+		
 		less: { // TODO: Add plugins
 			styles: {
 				files: {
@@ -20,7 +38,8 @@ module.exports = function(grunt) {
 	});
 	
 	grunt.loadNpmTasks("grunt-contrib-clean");
+	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-less");
 	
-	grunt.registerTask("process", ["clean", "less:bootstrap", "less:styles"]);
+	grunt.registerTask("process", ["clean", "copy:php", "less:bootstrap", "less:styles", "copy:js", "copy:fonts",]);
 };
