@@ -25,13 +25,24 @@ module.exports = function(grunt) {
 		
 		less: { // TODO: Add plugins
 			styles: {
+				options: {
+					plugins: [
+						new require("less-plugin-autoprefix")()
+					]
+				},
 				files: {
 					"dist/style.css": "less/style.less"
 				}
 			},
 			bootstrap: {
+				options: {
+					plugins: [
+						new (require("less-plugin-autoprefix"))(),
+						new (require("less-plugin-clean-css"))()
+					]
+				},
 				files: {
-					"dist/bootstrap.css": "less/bootstrap/bootstrap.less" // TODO: Change to bootstrap.min.css
+					"dist/bootstrap.min.css": "less/bootstrap/bootstrap.less" // TODO: Change to bootstrap.min.css
 				}
 			}
 		}
