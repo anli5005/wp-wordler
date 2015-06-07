@@ -3,7 +3,9 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 		
-		clean: ["dist"],
+		clean: {
+			dist: ["dist"],
+		},
 		
 		copy: {
 			php: {
@@ -23,11 +25,11 @@ module.exports = function(grunt) {
 			}
 		},
 		
-		less: { // TODO: Add plugins
+		less: {
 			styles: {
 				options: {
 					plugins: [
-						new require("less-plugin-autoprefix")()
+						new (require("less-plugin-autoprefix"))()
 					]
 				},
 				files: {
@@ -42,7 +44,17 @@ module.exports = function(grunt) {
 					]
 				},
 				files: {
-					"dist/bootstrap.min.css": "less/bootstrap/bootstrap.less" // TODO: Change to bootstrap.min.css
+					"dist/bootstrap.min.css": "less/bootstrap/bootstrap.less"
+				}
+			}
+		},
+		cssbeautifier: {
+			styles: {
+				options: {
+					indent: "\t"
+				},
+				files: {
+					"dist/style.css": "dist/style.css"
 				}
 			}
 		}
@@ -51,6 +63,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-less");
+	grunt.loadNpmTasks("grunt-cssbeautifier");
 	
-	grunt.registerTask("process", ["clean", "copy:php", "less:bootstrap", "less:styles", "copy:js", "copy:fonts",]);
+	grunt.registerTask("process", ["clean:dist", "copy:php", "less:bootstrap", "less:styles", "cssbeautifier:styles", "copy:js", "copy:fonts"]);
 };

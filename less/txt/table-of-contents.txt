@@ -1,0 +1,23 @@
+/**
+ * Table of Contents
+ *
+ * 1.0 - Reset
+ * 2.0 - Basic Styles
+ * 3.0 - Header
+ * 4.0 - Navigation
+ *   4.1 - Social Links
+ *   4.2 - Dropdown Submenus
+ * 5.0 - Widgets
+ * 6.0 - Sidebar
+ * 7.0 - Footer
+ * 8.0 - Media
+ * 9.0 - Accessibility
+ * 10.0 - Content Styles
+ *   10.1 - Attachment Pages
+ * 11.0 - Comment Forms
+ * 12.0 - Media Queries
+ *   12.1 - X-Small
+ *   12.2 - X-Small and Small
+ *   12.3 - Small, Medium, and Large
+ *   12.4 - Medium and Large
+ */

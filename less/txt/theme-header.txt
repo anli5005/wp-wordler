@@ -1,0 +1,6 @@
+/*
+ Theme Name: Wordler
+ Author: anli5005
+ Version: 0.1
+ Text Domain: wordler_theme
+ */
